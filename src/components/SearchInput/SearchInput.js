@@ -5,7 +5,10 @@ import searchIcon from './images/search-icon.png';
 const SearchInput = () => {
     return (
         <form className={styles.search}>
-            <input type="text"/>
+            <div>
+                <input type="text" placeholder='Search your trip'/>
+                <img src={searchIcon} alt="search icon"/>
+            </div>
         </form>
     );
 };
