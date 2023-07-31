@@ -1,0 +1,84 @@
+@import "src/components/reset";
+
+.modal {
+  width: 50vw;
+  padding: 20px 0;
+  border: 1px solid black;
+
+  .title_container {
+    position: relative;
+    img {
+      width: 24px;
+      position: absolute;
+      right: 30px;
+      top: 3px;
+      cursor: pointer;
+    }
+  }
+
+  h2 {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+    padding: 5px 0 20px 30px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: left;
+  }
+
+  form {
+    padding: 70px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      text-align: left;
+
+      .required {
+        color: red;
+      }
+
+      input[type='date'] {
+        width: 100%;
+        border: 1px solid gray;
+        padding: 10px;
+
+        background: transparent url("./images/calendar-icon.png");
+        background-size: 24px;
+        background-repeat: no-repeat;
+        background-position: 99%;
+        outline: none;
+
+        &::-webkit-calendar-picker-indicator {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 30px 0;
+    border-top: 1px solid rgba(128, 128, 128, 0.5);
+
+    .cancel, .save {
+      padding: 5px 10px;
+      border-radius: 3px;
+    }
+
+    .cancel {
+      border: 1px solid rgba(128, 128, 128, 0.5);
+      background: transparent;
+    }
+
+    .save {
+      background: #2e8cff;
+      color: white;
+    }
+  }
+}
