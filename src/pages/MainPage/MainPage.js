@@ -1,10 +1,6 @@
 import React from 'react';
 import styles from './MainPage.module.scss';
 import WeatherContainer from "../../components/WeatherContainer/WeatherContainer";
-import Select from "../../components/Modal/Select/Select";
-import Modal from "../../components/Modal/Modal";
-import SearchInput from "../../components/SearchInput/SearchInput";
-import WeatherCard from "../../components/WeatherCard/WeatherCard";
 import ForecastForToday from "../../components/ForecastForToday/ForecastForToday";
 
 const MainPage = () => {
@@ -21,10 +17,6 @@ const MainPage = () => {
         <div className={styles.main_page}>
             <WeatherContainer/>
             <ForecastForToday/>
-            {/*<Select/>*/}
-            {/*<Modal/>*/}
-            {/*<SearchInput/>*/}
-            {/*<WeatherCard/>*/}
         </div>
     );
 };

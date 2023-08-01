@@ -1,6 +1,40 @@
 @import "src/components/reset";
 
 .weather_cards_container {
-  display: flex;
-  gap: 40px;
+  position: relative;
+
+  .slider {
+    display: flex;
+    overflow-x: hidden;
+    gap: 40px;
+  }
+
+  .prev, .next {
+    position: absolute;
+    top: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    cursor: pointer;
+
+    &.none {
+      display: none;
+    }
+
+    img {
+      width: 30px;
+    }
+  }
+
+  .prev {
+    left: -25px;
+    img {
+      transform: rotate(180deg);
+    }
+  }
+
+  .next {
+    right: -25px;
+  }
 }

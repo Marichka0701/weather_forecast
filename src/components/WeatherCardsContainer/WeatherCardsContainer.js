@@ -1,32 +1,49 @@
 import React, {useEffect, useState} from 'react';
 import styles from './WeatherCardsContainer.module.scss';
 import WeatherCard from "../WeatherCard/WeatherCard";
+import button from './images/button-next-prev.png';
 
 const WeatherCardsContainer = ({trigger}) => {
-    // const currentDate = new Date().toLocaleDateString().split('.').reverse().join('-');
-    // const initialState = {
-    //     city: 'Berlin',
-    //     'startDate': `${currentDate}`,
-    //     'endDate': `2023-08-05`
-    // }
-    //
     const [data, setData] = useState([]);
-    // const trips = JSON.parse(localStorage.getItem('trips'));
-    //
-    //
+    const [currentIndex, setCurrentIndex] = useState(0);
+
     useEffect(()=> {
-        // trips && setData(prev => [...prev, trips]);
-       // const trips = localStorage.getItem('trips');
         setData(JSON.parse(localStorage.getItem('trips')))
-       // trips ? setData(JSON.parse(localStorage.getItem('trips'))) : []
     }, [trigger])
-    // const data = JSON.parse(localStorage.getItem('trips'));
+
+    const handlePrev = () => {
+        if (currentIndex !== 0) {
+            setCurrentIndex(prev => prev - 1)
+        }
+    };
+
+    const handleNext = () => {
+        if (currentIndex !== data.length) {
+            setCurrentIndex(prev => prev + 1)
+        }
+    };
 
     return (
         <div className={styles.weather_cards_container}>
-            {
-                data.map(card => <WeatherCard key={card.startDate} card={card} />)
-            }
+            <div
+                onClick={handlePrev}
+                className={`${styles.prev} ${currentIndex === 0 ? `${styles.none}` : ''}`}
+            >
+                <img src={button} alt="prev icon" />
+            </div>
+            <div className={styles.slider}>
+                {
+                    data.slice(currentIndex, currentIndex + 3).map((card, index) => (
+                    <WeatherCard key={index} card={card} />
+                ))
+                }
+            </div>
+            <div
+                onClick={handleNext}
+                className={`${styles.next} ${currentIndex === data.length - 3 || data.length < 3 ? `${styles.none}` : ''}`}
+            >
+                <img src={button} alt="next icon" />
+            </div>
         </div>
     );
 };
