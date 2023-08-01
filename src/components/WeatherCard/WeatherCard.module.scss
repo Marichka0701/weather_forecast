@@ -1,1 +1,32 @@
 @import "src/components/reset";
+
+.weather_card {
+  display: flex;
+  flex-direction: column;
+  width: 230px;
+  height: 300px;
+  border-radius: 2px;
+  cursor: pointer;
+
+  img {
+    height: 70%;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 20px;
+    border: 2px solid rgba(128, 128, 128, 0.5);
+
+    &:hover {
+      border: 2px solid #2e8cff;
+    }
+
+    p:nth-child(2) {
+      color: rgba(128, 128, 128, 1);
+    }
+  }
+}

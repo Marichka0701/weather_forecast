@@ -2,14 +2,14 @@
 
 .search {
   div {
-    width: 300px;
+    width: 250px;
     position: relative;
 
     input {
       width: 250px;
       height: 50px;
       border-radius: 12px;
-      background: rgba(128, 128, 128, 0.3);
+      background: rgba(128, 128, 128, 0.15);
       padding: 10px 10px 7px 50px;
 
       font-family: 'Roboto Condensed', sans-serif;
@@ -28,7 +28,7 @@
     img {
       position: absolute;
       top: 15px;
-      left: 40px;
+      left: 15px;
       width: 24px;
       z-index: 1;
     }
