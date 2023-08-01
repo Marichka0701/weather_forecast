@@ -7,16 +7,16 @@ import WeatherCardsContainer from "../WeatherCardsContainer/WeatherCardsContaine
 import WeekForecast from "../WeekForecast/WeekForecast";
 
 const WeatherContainer = () => {
-    // modal open or no
     const [isOpen, setIsOpen] = useState(false);
     const [trigger, setTrigger] = useState(false);
+    const [searchCities, setSearchCities] = useState('');
 
     return (
         <div className={`${styles.weather_container} ${isOpen === true ? `${styles.open}` : `${styles.close}`}`}>
             <Header/>
-            <SearchInput/>
+            <SearchInput setSearchCities={setSearchCities}/>
             <div className={styles.cards}>
-                <WeatherCardsContainer trigger={trigger}/>
+                <WeatherCardsContainer searchCities={searchCities} trigger={trigger}/>
                 <AddTrip setTrigger={setTrigger} isOpen={isOpen} setIsOpen={setIsOpen}/>
             </div>
             <WeekForecast/>
