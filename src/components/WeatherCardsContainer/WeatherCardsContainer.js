@@ -9,8 +9,10 @@ const WeatherCardsContainer = ({searchCities, trigger}) => {
     const [filteredData, setFilteredData] = useState([]);
 
     useEffect(() => {
-        searchCities && setFilteredData(data.filter(item =>
+        searchCities &&
+        setFilteredData(data.filter(item =>
             item.city.toLowerCase().startsWith(searchCities.toLowerCase())));
+        setCurrentIndex(0);
     }, [searchCities])
 
     useEffect(()=> {
@@ -28,6 +30,8 @@ const WeatherCardsContainer = ({searchCities, trigger}) => {
             setCurrentIndex(prev => prev + 1)
         }
     };
+
+    console.log('render weather cards container')
 
     return (
         <div className={styles.weather_cards_container}>

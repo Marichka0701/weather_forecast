@@ -1,7 +1,37 @@
 @import "src/components/reset";
 
-.forecast_for_today {
-   width: 30vw;
+.forecast_for_today_container {
+   width: 25vw;
    height: 100vh;
-   background: #282c34;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 50px;
+
+   .forecast_for_today {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      .day {
+         font-size: 30px;
+         font-weight: 600;
+      }
+
+      div {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         gap: 10px;
+
+         p{
+            font-size: 50px;
+         }
+      }
+
+      .address {
+         font-size: 24px;
+      }
+   }
 }

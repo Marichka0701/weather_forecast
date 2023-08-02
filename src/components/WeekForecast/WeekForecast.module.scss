@@ -2,6 +2,9 @@
 
 .week_forecast {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 
   h2 {
     text-align: left;
@@ -11,14 +14,7 @@
   .days_container {
     display: flex;
     gap: 50px;
-    //overflow-x: hidden;
   }
-
-  //.slider {
-  //  display: flex;
-  //  overflow-x: hidden;
-  //  gap: 40px;
-  //}
 
   .prev, .next {
     position: absolute;
@@ -40,14 +36,14 @@
 
   .prev {
     left: -30px;
-    top: 70px;
+    top: 90px;
     img {
       transform: rotate(180deg);
     }
   }
 
   .next {
-    top: 70px;
+    top: 90px;
     right: 50px;
   }
 }

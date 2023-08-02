@@ -11,6 +11,8 @@ const WeatherContainer = () => {
     const [trigger, setTrigger] = useState(false);
     const [searchCities, setSearchCities] = useState('');
 
+    console.log('render weather container')
+
     return (
         <div className={`${styles.weather_container} ${isOpen === true ? `${styles.open}` : `${styles.close}`}`}>
             <Header/>

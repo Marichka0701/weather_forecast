@@ -1,5 +1,5 @@
 const baseURL = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/';
-const apiKEY = '2GRMSXZKE8XXTMKVXPHV8SFZE';
+const apiKEY = 'WZ9T637KPXPHWYGUU7BQWP4R6';
 
 
 export {

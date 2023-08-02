@@ -10,21 +10,45 @@ const WeekForecast = () => {
     const {selectedCard} = useContext(Context);
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    useEffect(() => {
+    // useEffect(() => {
+    //
+    // }, [selectedCard])
 
-    }, [selectedCard])
-
-    console.log(selectedCard)
+    // console.log(selectedCard)
 
     const handlePrev = () => {
-        if (currentIndex !== 0) {
-            setCurrentIndex(prev => prev - 1 )
+        // if (currentIndex !== 0) {
+        //     setCurrentIndex(prev => prev - 1 )
+        // }
+        // if (currentIndex >= 10) {
+        //     setCurrentIndex((prev) => prev - 10);
+        // } else if (currentIndex > 0) {
+        //     setCurrentIndex(0);
+        // }
+
+        if (currentIndex > 0) {
+            setCurrentIndex((prev) => prev - 10 >= 0 ? prev - 10 : 0);
         }
     };
 
+    console.log('selected card', selectedCard)
     const handleNext = () => {
-        if (currentIndex !== selectedCard?.days.length) {
-            setCurrentIndex(prev => prev + 1)
+        // if (currentIndex !== selectedCard?.days.length) {
+        //     setCurrentIndex(prev => prev + 1)
+        // }
+
+        // const remainingElements = selectedCard?.days.length - (currentIndex + 10);
+        // if (remainingElements >= 10) {
+        //     setCurrentIndex((prev) => prev + 10);
+        // } else if (remainingElements > 0) {
+        //     setCurrentIndex((prev) => prev + remainingElements);
+        // }
+
+        const remainingElements = selectedCard?.days?.length - (currentIndex + 10);
+        if (remainingElements > 0) {
+            setCurrentIndex((prev) => prev + 10);
+        } else if (remainingElements > -10) {
+            setCurrentIndex((prev) => prev + remainingElements + 10);
         }
     };
 
@@ -40,17 +64,24 @@ const WeekForecast = () => {
             </div>
 
             <div className={styles.days_container}>
-                {
-                    // selectedCard && selectedCard.days.map((day, index) => <DayForecast key={index} day={day}/>)
-                    selectedCard && selectedCard?.days.slice(currentIndex, currentIndex + 10).map((day, index) => (
-                        <DayForecast key={index} day={day} />))
-                    // selectedCard && <Slider data={selectedCard?.days} number={7} Component={DayForecast} propsForComponent={'day'} />
-                }
+                {/*{*/}
+                {/*    // selectedCard && selectedCard.days.map((day, index) => <DayForecast key={index} day={day}/>)*/}
+                {/*    selectedCard && selectedCard?.days.slice(currentIndex, currentIndex + 10).map((day, index) => (*/}
+                {/*        <DayForecast key={index} day={day} />))*/}
+                {/*    // selectedCard && <Slider data={selectedCard?.days} number={7} Component={DayForecast} propsForComponent={'day'} />*/}
+                {/*}*/}
+                {selectedCard &&
+                    selectedCard?.days?.slice(currentIndex, currentIndex + 10).map((day, index) => (
+                        <DayForecast key={index} day={day} />
+                    ))}
             </div>
 
             <div
                 onClick={handleNext}
-                className={`${styles.next} ${currentIndex === selectedCard?.days.length ? `${styles.none}` : ''}`}
+                className={`${styles.next} ${currentIndex === selectedCard?.days?.length || 
+                !selectedCard || 
+                (currentIndex >= 10 && currentIndex < selectedCard?.days?.length) || 
+                    selectedCard?.days?.length < 10 ? `${styles.none}` : ''}`}
                 // className={`${styles.next} ${(currentIndex === data.length - 3
                 //     || data.length < 3 ||
                 //     (searchCities && filteredData.length < 3)) ? `${styles.none}` : ''}`}
