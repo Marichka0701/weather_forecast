@@ -3,13 +3,10 @@ import styles from './SearchInput.module.scss';
 import searchIcon from './images/search-icon.png';
 
 const SearchInput = ({setSearchCities}) => {
-    // const [searchCities, setSearchCities] = useState('');
     const handleChange = (e) => {
         e.preventDefault();
         setSearchCities(e.target.value);
     };
-
-    // console.log(searchCities)
 
     return (
         <form className={styles.search}>

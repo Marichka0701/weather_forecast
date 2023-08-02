@@ -13,8 +13,6 @@ const WeatherCardsContainer = ({searchCities, trigger}) => {
             item.city.toLowerCase().startsWith(searchCities.toLowerCase())));
     }, [searchCities])
 
-    console.log('filer', filteredData)
-
     useEffect(()=> {
         setData(JSON.parse(localStorage.getItem('trips')))
     }, [trigger])
@@ -49,11 +47,12 @@ const WeatherCardsContainer = ({searchCities, trigger}) => {
                         <WeatherCard key={index} card={card} />
                     ))
                 }
-
             </div>
             <div
                 onClick={handleNext}
-                className={`${styles.next} ${currentIndex === data.length - 3 || data.length < 3 || filteredData.length < 3 ? `${styles.none}` : ''}`}
+                className={`${styles.next} ${(currentIndex === data.length - 3 
+                    || data.length < 3 || 
+                    (searchCities && filteredData.length < 3)) ? `${styles.none}` : ''}`}
             >
                 <img src={button} alt="next icon" />
             </div>

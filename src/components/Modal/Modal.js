@@ -76,6 +76,7 @@ const Modal = ({setIsOpen, setTrigger}) => {
                                             disabled={index === 0}
                                             selected={index === 0}
                                             value={city.value}
+                                            key={index}
                                         >{city.name}</option>)
                                     }
                                 </select>

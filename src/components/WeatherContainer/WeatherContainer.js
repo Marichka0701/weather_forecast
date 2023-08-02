@@ -17,7 +17,11 @@ const WeatherContainer = () => {
             <SearchInput setSearchCities={setSearchCities}/>
             <div className={styles.cards}>
                 <WeatherCardsContainer searchCities={searchCities} trigger={trigger}/>
-                <AddTrip setTrigger={setTrigger} isOpen={isOpen} setIsOpen={setIsOpen}/>
+                <AddTrip
+                    setTrigger={setTrigger}
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
+                />
             </div>
             <WeekForecast/>
         </div>

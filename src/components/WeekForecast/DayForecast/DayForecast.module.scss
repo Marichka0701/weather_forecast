@@ -1,0 +1,8 @@
+@import "src/components/reset";
+
+.day_forecast {
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}

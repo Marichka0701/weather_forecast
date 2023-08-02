@@ -1,24 +1,6 @@
 @import "src/components/reset";
 
-.week_forecast {
-  position: relative;
-
-  h2 {
-    text-align: left;
-    color: #282c34;
-  }
-
-  .days_container {
-    display: flex;
-    gap: 50px;
-    //overflow-x: hidden;
-  }
-
-  //.slider {
-  //  display: flex;
-  //  overflow-x: hidden;
-  //  gap: 40px;
-  //}
+.slider_container {
 
   .prev, .next {
     position: absolute;
@@ -39,15 +21,13 @@
   }
 
   .prev {
-    left: -30px;
-    top: 70px;
+    left: -25px;
     img {
       transform: rotate(180deg);
     }
   }
 
   .next {
-    top: 70px;
-    right: 50px;
+    right: -25px;
   }
 }
