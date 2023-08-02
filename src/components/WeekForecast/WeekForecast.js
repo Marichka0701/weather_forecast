@@ -17,15 +17,6 @@ const WeekForecast = () => {
     // console.log(selectedCard)
 
     const handlePrev = () => {
-        // if (currentIndex !== 0) {
-        //     setCurrentIndex(prev => prev - 1 )
-        // }
-        // if (currentIndex >= 10) {
-        //     setCurrentIndex((prev) => prev - 10);
-        // } else if (currentIndex > 0) {
-        //     setCurrentIndex(0);
-        // }
-
         if (currentIndex > 0) {
             setCurrentIndex((prev) => prev - 10 >= 0 ? prev - 10 : 0);
         }

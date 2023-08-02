@@ -9,12 +9,13 @@ const WeatherCard = ({card}) => {
     const startDateFormatted = startDate.split('-').reverse().join('.');
     const endDateFormatted = endDate.split('-').reverse().join('.');
 
-    const {setSelectedCard, setStartDate} = useContext(Context);
+    const {setSelectedCard, setStartTime, setSelectedCity} = useContext(Context);
 
     const handleClick = () => {
         weatherService.getForecastBetweenTwoDates(city, startDate, endDate)
             .then(response => setSelectedCard(response.data))
-        setStartDate(startDate);
+        setStartTime(startDate);
+        setSelectedCity(city);
     };
 
     return (

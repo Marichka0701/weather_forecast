@@ -4,16 +4,17 @@
   display: flex;
   gap: 20px;
 
+  .timeUp {
+    padding: 0 20px;
+    font-size: 20px;
+    color: white;
+  }
+
   div {
     display: flex;
     flex-direction: column;
     gap: 20px;
     color: white;
-
-    .timeUp {
-      padding: 0 20px;
-      font-size: 20px;
-    }
 
     p:nth-child(1) {
       font-size: 30px;
