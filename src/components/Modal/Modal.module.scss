@@ -1,4 +1,5 @@
-@import "src/components/reset";
+@import "../../utils/reset";
+@import "src/utils/mixins";
 
 .modal_container {
   width: 100vw;
@@ -9,12 +10,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 100;
+  z-index: 1000;
+
+  @include onLaptop {
+    position: fixed;
+  }
+
+  @include onTablet {
+    padding: 50px 20px;
+  }
 
   .modal {
     width: 600px;
     padding: 20px 0;
     border: 1px solid rgba(128, 128, 128, 0.5);
+
+    @include onMobileLarge {
+      width: 400px;
+    }
 
     .title_container {
       position: relative;

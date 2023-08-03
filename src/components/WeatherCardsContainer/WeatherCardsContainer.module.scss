@@ -1,4 +1,5 @@
-@import "src/components/reset";
+@import "../../utils/reset";
+@import "../../utils/mixins";
 
 .weather_cards_container {
   position: relative;
@@ -7,6 +8,16 @@
     display: flex;
     overflow-x: hidden;
     gap: 40px;
+
+    @include onLaptop {
+      flex-flow: row wrap;
+      gap: 30px;
+      justify-content: space-around;
+    }
+
+    @include onMobileLarge {
+      gap: 5px;
+    }
   }
 
   .prev, .next {
@@ -29,6 +40,11 @@
 
   .prev {
     left: -25px;
+
+    @include onMobileLarge {
+      left: 35px;
+    }
+
     img {
       transform: rotate(180deg);
     }
@@ -36,5 +52,9 @@
 
   .next {
     right: -25px;
+
+    @include onMobileLarge {
+      right: 35px;
+    }
   }
 }

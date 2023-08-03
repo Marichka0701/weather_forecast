@@ -1,4 +1,5 @@
-@import "src/components/reset";
+@import "../../utils/reset";
+@import "src/utils/mixins";
 
 .add_trip {
   width: 230px;
@@ -13,6 +14,12 @@
   font-size: 20px;
   font-weight: 500;
   color: #282c34;
+
+  @include onLaptop {
+    border-radius: 12px;
+    height: 80px;
+    width: 92.5%;
+  }
 
   &:hover {
     transform: scale(0.9);

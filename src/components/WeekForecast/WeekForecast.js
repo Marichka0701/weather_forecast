@@ -19,7 +19,6 @@ const WeekForecast = () => {
         }
     };
 
-    console.log('selected card', selectedCard)
     const handleNext = () => {
         const remainingElements = selectedCard?.days?.length - (currentIndex + 10);
         if (remainingElements > 0) {
@@ -40,7 +39,7 @@ const WeekForecast = () => {
                 <img src={button} alt="prev icon" />
             </div>
 
-            <div className={styles.slider_wrapper}>
+            {/*<div className={styles.slider_wrapper}>*/}
                 <div className={styles.days_container}>
                     {selectedCard &&
                         selectedCard?.days?.slice(currentIndex, currentIndex + 10)
@@ -48,7 +47,7 @@ const WeekForecast = () => {
                                 <DayForecast key={index} day={day}/>
                             ))}
                 </div>
-            </div>
+            {/*</div>*/}
 
             <div
                 onClick={handleNext}

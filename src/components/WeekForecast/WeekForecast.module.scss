@@ -1,10 +1,15 @@
-@import "src/components/reset";
+@import "../../utils/reset";
+@import "src/utils/mixins";
 
 .week_forecast {
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 25px;
+
+  @include onLaptop {
+    width: 92%;
+  }
 
   h2 {
     text-align: left;
@@ -13,14 +18,23 @@
 
   .days_container {
     display: flex;
-    gap: 50px;
-    transition: transform 0.8s ease; ;
+    gap: 40px;
+
+    @include onLaptop {
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+      gap: 30px;
+    }
+
+    @include onLaptopSmall {
+      gap: 23px;
+    }
   }
 
   .prev, .next {
     position: absolute;
-    top: 130px;
     display: flex;
+    top: 90px;
     justify-content: center;
     align-items: center;
     z-index: 10;
@@ -37,14 +51,25 @@
 
   .prev {
     left: -30px;
-    top: 90px;
+
+    @include onMobileLarge {
+      left: -25px;
+    }
+
     img {
       transform: rotate(180deg);
     }
   }
 
   .next {
-    top: 90px;
-    right: 50px;
+    right: 90px;
+
+    @include onLaptop {
+      right: -50px;
+    }
+
+    @include onMobileLarge {
+      right: -30px;
+    }
   }
 }

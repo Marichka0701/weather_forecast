@@ -76,10 +76,6 @@ const cities = [
         name: 'Barcelona',
     },
     {
-        value: 'Bali',
-        name: 'Bali',
-    },
-    {
         value: 'Makkah',
         name: 'Makkah',
     },
@@ -157,10 +153,6 @@ const photos = [
     {
         name: 'Barcelona',
         image: 'https://i.pinimg.com/564x/b0/8e/25/b08e25b1109fc9573a6f572a442e2378.jpg',
-    },
-    {
-        name: 'Bali',
-        image: 'https://i.pinimg.com/564x/4c/77/37/4c7737e0777e28b41e9c49a17b79b159.jpg',
     },
     {
         name: 'Makkah',

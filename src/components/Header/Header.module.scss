@@ -1,9 +1,15 @@
-@import 'src/components/reset';
+@import '../../utils/reset';
+@import "src/utils/mixins";
 
 .header {
   text-align: left;
   font-size: 14px;
   color: #282c34;
+
+  @include onLaptop {
+    width: 92%;
+  }
+
   span {
     font-weight: 700;
   }

@@ -6,6 +6,7 @@ const Context = createContext(null);
 const ContextProvider = ({children}) => {
     const {city, startDate, endDate} = initialState;
 
+    const [modalOpen, setModalOpen] = useState(false);
     const [selectedCard, setSelectedCard] = useState(null);
     const [startTime, setStartTime] = useState(null);
     const [selectedCity, setSelectedCity] = useState(city);
@@ -16,7 +17,7 @@ const ContextProvider = ({children}) => {
     }, [])
 
     return (
-        <Context.Provider value={{selectedCard, setSelectedCard, startTime, setStartTime, selectedCity, setSelectedCity}}>
+        <Context.Provider value={{modalOpen, setModalOpen, selectedCard, setSelectedCard, startTime, setStartTime, selectedCity, setSelectedCity}}>
             {children}
         </Context.Provider>
     );
