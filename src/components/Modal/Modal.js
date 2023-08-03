@@ -14,17 +14,19 @@ const Modal = ({setModalOpen, setTrigger}) => {
         setModalOpen(false);
     };
 
-    const maxDate = () => {
-        const currentDate = new Date();
-        const maxDate = new Date(currentDate.getTime() + 15 * 24 * 60 * 60 * 1000);
-        // const maxDate = new Date();
-        // maxDate.setDate(currentDate.getDate() + 15);
-        //
-        // if (maxDate.getMonth() !== currentDate.getMonth()) {
-        //     maxDate.setMonth(currentDate.getMonth() + 1, 0);
-        // }
+    const maxDate = (date) => {
+        // format the date to YYYY-MM-DD
+        const currentDate = new Date().toLocaleDateString().split('.').reverse().join('-');
 
-        return maxDate.toLocaleDateString().split('.').reverse().join('-');
+        // if condition true, we set max date for input 'endDate'
+        // if condition false, we set max date for input 'startDate'
+        if (date && date !== currentDate) {
+            const maxDate = new Date(new Date(date.split('-').join('.')).getTime() + 15 * 24 * 60 * 60 * 1000);
+            return maxDate.toLocaleDateString().split('.').reverse().join('-');
+        } else {
+            const maxDate = new Date(new Date(currentDate).getTime() + 15 * 24 * 60 * 60 * 1000);
+            return maxDate.toLocaleDateString().split('.').reverse().join('-');
+        }
     }
 
     const minDate = () => {
@@ -92,7 +94,7 @@ const Modal = ({setModalOpen, setTrigger}) => {
                                 {...register('startDate')}
                                 onChange={handleChange}
                                 min={minDate()}
-                                max={maxDate()}
+                                max={maxDate(minDate())}
                                 type="date"
                             />
                             {errors.startDate && <span className={styles.error}>{errors.startDate.message}</span>}
@@ -103,7 +105,7 @@ const Modal = ({setModalOpen, setTrigger}) => {
                             <input
                                 {...register('endDate')}
                                 min={startDate}
-                                max={maxDate()}
+                                max={maxDate(startDate)}
                                 type="date"
                             />
                             {errors.endDate && <span className={styles.error}>{errors.endDate.message}</span>}
