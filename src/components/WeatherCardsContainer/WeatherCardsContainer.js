@@ -33,6 +33,8 @@ const WeatherCardsContainer = ({searchCities, trigger}) => {
 
     console.log('render weather cards container')
 
+    console.log('cur', currentIndex)
+
     return (
         <div className={styles.weather_cards_container}>
             <div
@@ -56,7 +58,8 @@ const WeatherCardsContainer = ({searchCities, trigger}) => {
                 onClick={handleNext}
                 className={`${styles.next} ${(currentIndex === data.length - 3 
                     || data.length < 3 || 
-                    (searchCities && filteredData.length < 3)) ? `${styles.none}` : ''}`}
+                    (searchCities && filteredData.length < 3)) 
+                    || currentIndex === filteredData.length - 3 ? `${styles.none}` : ''}`}
             >
                 <img src={button} alt="next icon" />
             </div>

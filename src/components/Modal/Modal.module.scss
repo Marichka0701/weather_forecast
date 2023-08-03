@@ -55,6 +55,8 @@
 
       .select_wrapper {
         position: relative;
+        height: 37px;
+        overflow-y: auto;
 
         &:before {
           content: '';
@@ -75,6 +77,9 @@
 
       .select {
         width: 100%;
+
+        min-height: 37px;
+
         -moz-appearance: none;
         -webkit-appearance: none;
         appearance: none;
@@ -149,6 +154,7 @@
         &:disabled {
           background: rgba(46, 140, 255, 0.5);
           transition: 0.8s;
+          transform: scale(1);
         }
       }
     }
