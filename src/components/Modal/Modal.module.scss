@@ -144,6 +144,12 @@
       .save {
         background: #2e8cff;
         color: white;
+        transition: 0.8s;
+
+        &:disabled {
+          background: rgba(46, 140, 255, 0.5);
+          transition: 0.8s;
+        }
       }
     }
   }

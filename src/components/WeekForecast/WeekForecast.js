@@ -2,19 +2,16 @@ import React, {useContext, useEffect, useState} from 'react';
 import styles from './WeekForecast.module.scss';
 import {Context} from "../../HOC/ContextProvider";
 import DayForecast from "./DayForecast/DayForecast";
-import WeatherCard from "../WeatherCard/WeatherCard";
 import button from './images/button-next-prev.png';
-import Slider from "../Slider/Slider";
 
 const WeekForecast = () => {
     const {selectedCard} = useContext(Context);
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    // useEffect(() => {
-    //
-    // }, [selectedCard])
+    useEffect(() => {
+        setCurrentIndex(0);
+    }, [selectedCard])
 
-    // console.log(selectedCard)
 
     const handlePrev = () => {
         if (currentIndex > 0) {
@@ -24,17 +21,6 @@ const WeekForecast = () => {
 
     console.log('selected card', selectedCard)
     const handleNext = () => {
-        // if (currentIndex !== selectedCard?.days.length) {
-        //     setCurrentIndex(prev => prev + 1)
-        // }
-
-        // const remainingElements = selectedCard?.days.length - (currentIndex + 10);
-        // if (remainingElements >= 10) {
-        //     setCurrentIndex((prev) => prev + 10);
-        // } else if (remainingElements > 0) {
-        //     setCurrentIndex((prev) => prev + remainingElements);
-        // }
-
         const remainingElements = selectedCard?.days?.length - (currentIndex + 10);
         if (remainingElements > 0) {
             setCurrentIndex((prev) => prev + 10);
@@ -54,17 +40,14 @@ const WeekForecast = () => {
                 <img src={button} alt="prev icon" />
             </div>
 
-            <div className={styles.days_container}>
-                {/*{*/}
-                {/*    // selectedCard && selectedCard.days.map((day, index) => <DayForecast key={index} day={day}/>)*/}
-                {/*    selectedCard && selectedCard?.days.slice(currentIndex, currentIndex + 10).map((day, index) => (*/}
-                {/*        <DayForecast key={index} day={day} />))*/}
-                {/*    // selectedCard && <Slider data={selectedCard?.days} number={7} Component={DayForecast} propsForComponent={'day'} />*/}
-                {/*}*/}
-                {selectedCard &&
-                    selectedCard?.days?.slice(currentIndex, currentIndex + 10).map((day, index) => (
-                        <DayForecast key={index} day={day} />
-                    ))}
+            <div className={styles.slider_wrapper}>
+                <div className={styles.days_container}>
+                    {selectedCard &&
+                        selectedCard?.days?.slice(currentIndex, currentIndex + 10)
+                            .map((day, index) => (
+                                <DayForecast key={index} day={day}/>
+                            ))}
+                </div>
             </div>
 
             <div
@@ -73,9 +56,6 @@ const WeekForecast = () => {
                 !selectedCard || 
                 (currentIndex >= 10 && currentIndex < selectedCard?.days?.length) || 
                     selectedCard?.days?.length < 10 ? `${styles.none}` : ''}`}
-                // className={`${styles.next} ${(currentIndex === data.length - 3
-                //     || data.length < 3 ||
-                //     (searchCities && filteredData.length < 3)) ? `${styles.none}` : ''}`}
             >
                 <img src={button} alt="next icon" />
             </div>

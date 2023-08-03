@@ -1,12 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
+
 import styles from './AddTrip.module.scss';
 import addIcon from './images/add-icon.png';
 import Modal from "../Modal/Modal";
 
-const AddTrip = ({isOpen, setIsOpen, setTrigger}) => {
+const AddTrip = ({modalOpen, setModalOpen, setTrigger}) => {
 
     const handleClick = () => {
-        setIsOpen(true);
+        setModalOpen(true);
     };
 
     return (
@@ -15,7 +16,7 @@ const AddTrip = ({isOpen, setIsOpen, setTrigger}) => {
                 <img src={addIcon} alt="add icon"/>
                 Add trip
             </div>
-            {isOpen && <Modal setTrigger={setTrigger} setIsOpen={setIsOpen} />}
+            {modalOpen && <Modal setTrigger={setTrigger} setModalOpen={setModalOpen} />}
         </>
     );
 };

@@ -7,22 +7,20 @@ import WeatherCardsContainer from "../WeatherCardsContainer/WeatherCardsContaine
 import WeekForecast from "../WeekForecast/WeekForecast";
 
 const WeatherContainer = () => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [modalOpen, setModalOpen] = useState(false);
     const [trigger, setTrigger] = useState(false);
     const [searchCities, setSearchCities] = useState('');
 
-    console.log('render weather container')
-
     return (
-        <div className={`${styles.weather_container} ${isOpen === true ? `${styles.open}` : `${styles.close}`}`}>
+        <div className={`${styles.weather_container} ${modalOpen === true ? `${styles.open}` : `${styles.close}`}`}>
             <Header/>
-            <SearchInput setSearchCities={setSearchCities}/>
+            <SearchInput setTrigger={setTrigger} setSearchCities={setSearchCities}/>
             <div className={styles.cards}>
                 <WeatherCardsContainer searchCities={searchCities} trigger={trigger}/>
                 <AddTrip
                     setTrigger={setTrigger}
-                    isOpen={isOpen}
-                    setIsOpen={setIsOpen}
+                    modalOpen={modalOpen}
+                    setModalOpen={setModalOpen}
                 />
             </div>
             <WeekForecast/>

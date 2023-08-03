@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import styles from './WeatherCard.module.scss'
 import {photos} from '../../constants/cities';
 import {weatherService} from "../../services/weather.service";

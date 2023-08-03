@@ -1,26 +1,28 @@
 import React, {useState} from 'react';
+import {joiResolver} from '@hookform/resolvers/joi'
+import {useForm} from "react-hook-form";
+
 import styles from './Modal.module.scss';
 import closeIcon from './images/close-icon.png';
-import {useForm} from "react-hook-form";
 import {cities} from "../../constants/cities";
 import {modalFormValidator} from "../../validators/modal.form.validator";
-import {joiResolver} from '@hookform/resolvers/joi'
 
-const Modal = ({setIsOpen, setTrigger}) => {
+const Modal = ({setModalOpen, setTrigger}) => {
     const [startDate, setStartDate] = useState();
 
     const handleClick = () => {
-        setIsOpen(false);
+        setModalOpen(false);
     };
 
     const maxDate = () => {
         const currentDate = new Date();
-        const maxDate = new Date();
-        maxDate.setDate(currentDate.getDate() + 15);
-
-        if (maxDate.getMonth() !== currentDate.getMonth()) {
-            maxDate.setMonth(currentDate.getMonth() + 1, 0);
-        }
+        const maxDate = new Date(currentDate.getTime() + 15 * 24 * 60 * 60 * 1000);
+        // const maxDate = new Date();
+        // maxDate.setDate(currentDate.getDate() + 15);
+        //
+        // if (maxDate.getMonth() !== currentDate.getMonth()) {
+        //     maxDate.setMonth(currentDate.getMonth() + 1, 0);
+        // }
 
         return maxDate.toLocaleDateString().split('.').reverse().join('-');
     }
@@ -32,7 +34,7 @@ const Modal = ({setIsOpen, setTrigger}) => {
 
     const {
         register,
-        formState: {errors},
+        formState: {errors, isValid},
         handleSubmit,
         reset,
     } = useForm({
@@ -42,9 +44,9 @@ const Modal = ({setIsOpen, setTrigger}) => {
 
     const onSubmit = (data) => {
         const trips = JSON.parse(localStorage.getItem('trips')) || [];
-        trips.push(data)
+        trips.push(data);
         localStorage.setItem('trips', JSON.stringify(trips));
-        setIsOpen(false);
+        setModalOpen(false);
         setTrigger(prev => !prev);
         reset();
     };
@@ -116,6 +118,7 @@ const Modal = ({setIsOpen, setTrigger}) => {
                         <button
                             type='submit'
                             className={styles.save}
+                            disabled={!isValid}
                         >Save</button>
                     </div>
                 </form>

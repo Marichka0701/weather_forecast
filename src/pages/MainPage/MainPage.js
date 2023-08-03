@@ -19,9 +19,6 @@ const MainPage = () => {
                 selectedCity ?
                     <ForecastForToday/> :
                     <div style={{backgroundImage: `url(${background})`, width: '25vw', height: '100vh'}}></div>
-               // selectedCard ?
-               //     <ForecastForToday/> :
-               //     <div style={{backgroundImage: `url(${background})`, width: '25vw', height: '100vh'}}></div>
             }
         </div>
     );

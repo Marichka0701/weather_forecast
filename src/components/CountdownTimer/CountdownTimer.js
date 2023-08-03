@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
+
 import styles from './CountdownTimer.module.scss';
 
-const CountdownTimer = ({startDate}) => {
+const CountdownTimer = ({startTime}) => {
     const calculateTimeRemaining = () => {
-        const now = new Date().getTime();
-        const target = new Date(startDate).getTime();
-        const timeRemaining = target - now;
+        const currentTime = new Date().getTime();
+        const endTime = new Date(startTime).getTime();
+        const timeRemaining = endTime - currentTime;
 
         if (timeRemaining < 0) {
             return { days: 0, hours: 0, minutes: 0, seconds: 0 };
@@ -20,6 +21,7 @@ const CountdownTimer = ({startDate}) => {
     };
 
     const [timeRemaining, setTimeRemaining] = useState(calculateTimeRemaining());
+    const {days, hours, minutes, seconds} = timeRemaining;
 
     useEffect(() => {
         const timerInterval = setInterval(() => {
@@ -29,34 +31,34 @@ const CountdownTimer = ({startDate}) => {
         return () => {
             clearInterval(timerInterval);
         };
-    }, [startDate]);
+    }, [startTime]);
 
     return (
         <div  className={styles.countdown_timer}>
             {
-                (timeRemaining.days === 0 &&
-                timeRemaining.hours === 0 &&
-                timeRemaining.minutes === 0 &&
-                timeRemaining.seconds === 0) ?
+                (days === 0 &&
+                hours === 0 &&
+                minutes === 0 &&
+                seconds === 0) ?
                     <p className={styles.timeUp}>Your trip has already begun. Have a good trip!</p> :
              <>
                 <div>
-                    <p>{timeRemaining.days}</p>
+                    <p>{days}</p>
                     <p>DAYS</p>
                 </div>
 
                 <div>
-                    <p>{timeRemaining.hours}</p>
+                    <p>{hours}</p>
                     <p>HOURS</p>
                 </div>
 
                 <div>
-                    <p>{timeRemaining.minutes}</p>
+                    <p>{minutes}</p>
                     <p>MINUTES</p>
                 </div>
 
                 <div>
-                    <p>{timeRemaining.seconds}</p>
+                    <p>{seconds}</p>
                     <p>SECONDS</p>
                 </div>
             </>
