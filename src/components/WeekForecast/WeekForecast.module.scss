@@ -75,5 +75,11 @@
     @include onLaptopMedium {
       right: -30px;
     }
+
+    .next.open {
+      @include onMobileSmall {
+        right: 0;
+      }
+    }
   }
 }

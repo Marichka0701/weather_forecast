@@ -6,7 +6,7 @@ import DayForecast from "./DayForecast/DayForecast";
 import button from './images/button-next-prev.png';
 
 const WeekForecast = () => {
-    const {selectedCard} = useContext(Context);
+    const {selectedCard, modalOpen} = useContext(Context);
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
@@ -49,7 +49,8 @@ const WeekForecast = () => {
 
             <div
                 onClick={handleNext}
-                className={`${styles.next} ${currentIndex === selectedCard?.days?.length || 
+                className={`${styles.next} ${modalOpen === true ? `${styles.open}` : ''} 
+                ${currentIndex === selectedCard?.days?.length || 
                 !selectedCard || 
                 (currentIndex >= 10 && currentIndex < selectedCard?.days?.length) || 
                     selectedCard?.days?.length < 10 ? `${styles.none}` : ''}`}
