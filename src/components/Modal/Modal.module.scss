@@ -1,20 +1,17 @@
 @import "../../utils/reset";
-@import "src/utils/mixins";
+@import "../../utils/mixins";
 
 .modal_container {
-  width: 100vw;
-  height: 100vh;
   background: white;
-  position: absolute;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-
-  @include onLaptop {
-    position: fixed;
-  }
 
   @include onTablet {
     padding: 50px 20px;

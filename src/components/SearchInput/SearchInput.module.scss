@@ -1,5 +1,5 @@
 @import "../../utils/reset";
-@import "src/utils/mixins";
+@import "../../utils/mixins";
 
 
 .search_container {
@@ -15,6 +15,10 @@
 
   @include onMobileSmall {
     flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  @include onMobileLarge {
     gap: 10px;
   }
 

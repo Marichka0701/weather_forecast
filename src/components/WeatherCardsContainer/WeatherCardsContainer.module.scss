@@ -45,6 +45,10 @@
       left: 35px;
     }
 
+    @include onMobileSmall {
+      left: 25px;
+    }
+
     img {
       transform: rotate(180deg);
     }
@@ -55,6 +59,10 @@
 
     @include onMobileLarge {
       right: 35px;
+    }
+
+    @include onMobileSmall {
+      right: 20px;
     }
   }
 }

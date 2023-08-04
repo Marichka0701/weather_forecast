@@ -1,5 +1,5 @@
 @import "../../utils/reset";
-@import "src/utils/mixins";
+@import "../../utils/mixins";
 
 .week_forecast {
   position: relative;
@@ -78,16 +78,6 @@
 
     @include onMobileSmall {
       right: -25px;
-    }
-
-    &.open {
-      @include onMobileLarge {
-        display: none;
-      }
-
-      @include onMobileSmall {
-        display: none;
-      }
     }
   }
 }

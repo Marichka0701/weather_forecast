@@ -1,5 +1,5 @@
 @import "../../utils/reset";
-@import "src/utils/mixins";
+@import "../../utils/mixins";
 
 .weather_container {
   width: 80vw;
@@ -9,13 +9,9 @@
   gap: 25px;
 
   @include onLaptop {
+    width: auto;
     align-items: center;
     height: auto;
-  }
-
-  @include onMobileLarge {
-    width: 100vw;
-    align-items: flex-start;
   }
 
   @include onLaptopSmall {
