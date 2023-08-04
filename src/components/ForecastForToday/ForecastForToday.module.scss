@@ -19,6 +19,15 @@
       background-size: cover;
    }
 
+   @include onLaptopSmall {
+      width: 100vw;
+      height: auto;
+      padding: 80px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+   }
+
    .forecast_for_today {
       display: flex;
       flex-direction: column;

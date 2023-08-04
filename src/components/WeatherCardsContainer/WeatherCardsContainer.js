@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+
 import styles from './WeatherCardsContainer.module.scss';
 import WeatherCard from "../WeatherCard/WeatherCard";
 import button from './images/button-next-prev.png';
@@ -30,10 +31,6 @@ const WeatherCardsContainer = ({searchCities, trigger}) => {
             setCurrentIndex(prev => prev + 1)
         }
     };
-
-    console.log('render weather cards container')
-
-    console.log('cur', currentIndex)
 
     return (
         <div className={styles.weather_cards_container}>

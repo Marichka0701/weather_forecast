@@ -9,6 +9,10 @@
     gap: 5px;
   }
 
+  @include onTablet {
+    gap: 20px;
+  }
+
   .timeUp {
     padding: 0 20px;
     font-size: 20px;

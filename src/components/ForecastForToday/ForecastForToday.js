@@ -7,14 +7,12 @@ import CountdownTimer from "../CountdownTimer/CountdownTimer";
 import {weatherService} from "../../services/weather.service";
 
 const ForecastForToday = () => {
-    const { selectedCity } = useContext(Context);
-    const { startTime } = useContext(Context);
+    const { selectedCity, startTime } = useContext(Context);
 
     const [address, setAddress] = useState('');
     const [temp, setTemp] = useState(null);
     const [icon, setIcon] = useState('');
 
-    // format date for API, ex. 2023-08-02
     const currentDate = new Date().toLocaleDateString().split('.').reverse().join('-');
     const dayOfWeek = new Date(currentDate).toLocaleString('en-US', { weekday: 'long' });
 
@@ -30,19 +28,19 @@ const ForecastForToday = () => {
             }
         };
         setData();
-    }, [selectedCity, startTime]);
+    }, [selectedCity]);
 
     return (
         <div style={{ backgroundImage: `url(${background})` }} className={styles.forecast_for_today_container}>
             <div style={{color: 'white'}} className={styles.forecast_for_today}>
                 <p className={styles.day}>{dayOfWeek}</p>
                 <div>
-                    {icon && <img src={require(`../WeekForecast/DayForecast/images/${icon}.png`)} alt=""/>}
+                    {icon && <img src={require(`../WeekForecast/DayForecast/images/${icon}.png`)} alt={address} />}
                     <p>{temp}<sup>°c</sup></p>
                 </div>
                 <p className={styles.address}>{address}</p>
             </div>
-            {selectedCity && <CountdownTimer startTime={startTime}/>}
+            <CountdownTimer startTime={startTime}/>
         </div>
     );
 };

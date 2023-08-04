@@ -1,4 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
+
 import styles from './WeekForecast.module.scss';
 import {Context} from "../../HOC/ContextProvider";
 import DayForecast from "./DayForecast/DayForecast";
@@ -11,7 +12,6 @@ const WeekForecast = () => {
     useEffect(() => {
         setCurrentIndex(0);
     }, [selectedCard])
-
 
     const handlePrev = () => {
         if (currentIndex > 0) {
@@ -39,15 +39,13 @@ const WeekForecast = () => {
                 <img src={button} alt="prev icon" />
             </div>
 
-            {/*<div className={styles.slider_wrapper}>*/}
-                <div className={styles.days_container}>
-                    {selectedCard &&
-                        selectedCard?.days?.slice(currentIndex, currentIndex + 10)
-                            .map((day, index) => (
-                                <DayForecast key={index} day={day}/>
-                            ))}
-                </div>
-            {/*</div>*/}
+            <div className={styles.days_container}>
+                {selectedCard &&
+                    selectedCard?.days?.slice(currentIndex, currentIndex + 10)
+                        .map((day, index) => (
+                            <DayForecast key={index} day={day}/>
+                        ))}
+            </div>
 
             <div
                 onClick={handleNext}

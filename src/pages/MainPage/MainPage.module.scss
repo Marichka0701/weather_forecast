@@ -13,7 +13,8 @@
     justify-content: flex-start;
   }
 
-  //@include onMobileSmall {
-  //  justify-content: flex-start;
-  //}
+  @include onLaptopSmall {
+    flex-flow: row wrap;
+    justify-content: center;
+  }
 }

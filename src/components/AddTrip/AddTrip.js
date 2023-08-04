@@ -5,7 +5,6 @@ import addIcon from './images/add-icon.png';
 import Modal from "../Modal/Modal";
 
 const AddTrip = ({modalOpen, setModalOpen, setTrigger}) => {
-
     const handleClick = () => {
         setModalOpen(true);
     };

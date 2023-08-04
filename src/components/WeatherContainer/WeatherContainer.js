@@ -1,4 +1,5 @@
 import React, {useContext, useState} from 'react';
+
 import styles from './WeatherContainer.module.scss';
 import Header from "../Header/Header";
 import SearchInput from "../SearchInput/SearchInput";
@@ -9,7 +10,6 @@ import {Context} from "../../HOC/ContextProvider";
 
 const WeatherContainer = () => {
     const {modalOpen, setModalOpen} = useContext(Context);
-    // const [modalOpen, setModalOpen] = useState(false);
     const [trigger, setTrigger] = useState(false);
     const [searchCities, setSearchCities] = useState('');
 
@@ -18,7 +18,10 @@ const WeatherContainer = () => {
             <Header/>
             <SearchInput setTrigger={setTrigger} setSearchCities={setSearchCities}/>
             <div className={styles.cards}>
-                <WeatherCardsContainer searchCities={searchCities} trigger={trigger}/>
+                <WeatherCardsContainer
+                    searchCities={searchCities}
+                    trigger={trigger}
+                />
                 <AddTrip
                     setTrigger={setTrigger}
                     modalOpen={modalOpen}

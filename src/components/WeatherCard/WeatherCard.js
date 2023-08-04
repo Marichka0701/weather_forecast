@@ -1,4 +1,5 @@
 import React, {useContext} from 'react';
+
 import styles from './WeatherCard.module.scss'
 import {photos} from '../../constants/cities';
 import {weatherService} from "../../services/weather.service";
@@ -27,7 +28,7 @@ const WeatherCard = ({card}) => {
             }
             <div>
                 <p>{city}</p>
-                <p>{startDateFormatted} - {endDateFormatted} </p>
+                <p> {startDateFormatted} - {endDateFormatted} </p>
             </div>
         </div>
     );

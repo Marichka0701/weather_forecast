@@ -6,6 +6,7 @@ import styles from './Modal.module.scss';
 import closeIcon from './images/close-icon.png';
 import {cities} from "../../constants/cities";
 import {modalFormValidator} from "../../validators/modal.form.validator";
+import {maxDate, minDate} from "../../constants/assets";
 
 const Modal = ({setModalOpen, setTrigger}) => {
     const [startDate, setStartDate] = useState();
@@ -14,26 +15,6 @@ const Modal = ({setModalOpen, setTrigger}) => {
         setModalOpen(false);
     };
 
-    const maxDate = (date) => {
-        // format the date to YYYY-MM-DD
-        const currentDate = new Date().toLocaleDateString().split('.').reverse().join('-');
-
-        // if condition true, we set max date for input 'endDate'
-        // if condition false, we set max date for input 'startDate'
-        if (date && date !== currentDate) {
-            const maxDate = new Date(new Date(date.split('-').join('.')).getTime() + 15 * 24 * 60 * 60 * 1000);
-            return maxDate.toLocaleDateString().split('.').reverse().join('-');
-        } else {
-            const maxDate = new Date(new Date(currentDate).getTime() + 15 * 24 * 60 * 60 * 1000);
-            return maxDate.toLocaleDateString().split('.').reverse().join('-');
-        }
-    }
-
-    const minDate = () => {
-        const currentDate = new Date().toLocaleDateString();
-        return currentDate.split('.').reverse().join('-');
-    }
-
     const {
         register,
         formState: {errors, isValid},
@@ -41,7 +22,7 @@ const Modal = ({setModalOpen, setTrigger}) => {
         reset,
     } = useForm({
         mode: 'all',
-        resolver: joiResolver(modalFormValidator)
+        resolver: joiResolver(modalFormValidator),
     });
 
     const onSubmit = (data) => {
@@ -68,7 +49,7 @@ const Modal = ({setModalOpen, setTrigger}) => {
 
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className={styles.inputs_container}>
-                        <label htmlFor="city">
+                        <label>
                             <span><span className={styles.required}>*</span> City</span>
                             <div className={styles.select_wrapper}>
                                 <select
@@ -88,7 +69,7 @@ const Modal = ({setModalOpen, setTrigger}) => {
                             {errors.city && <span className={styles.error}> {errors.city.message} </span>}
                         </label>
 
-                        <label htmlFor="date">
+                        <label>
                             <span><span className={styles.required}>*</span> Start date</span>
                             <input
                                 {...register('startDate')}
@@ -100,7 +81,7 @@ const Modal = ({setModalOpen, setTrigger}) => {
                             {errors.startDate && <span className={styles.error}>{errors.startDate.message}</span>}
                         </label>
 
-                        <label htmlFor="date">
+                        <label>
                             <span> <span className={styles.required}>*</span> End date</span>
                             <input
                                 {...register('endDate')}

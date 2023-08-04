@@ -4,7 +4,6 @@ const modalFormValidator = Joi.object({
     city: Joi.string().required().messages({
         'string.empty': 'Поле \'City\' є обов\'язковим',
     }),
-
     startDate: Joi.string().required().messages({
     'string.empty': 'Поле \'Start date\' є обов\'язковим',
     }),

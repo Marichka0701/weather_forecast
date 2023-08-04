@@ -26,7 +26,11 @@
     border: 1px solid rgba(128, 128, 128, 0.5);
 
     @include onMobileLarge {
-      width: 400px;
+      width: 80vw;
+    }
+
+    @include onMobileSmall {
+      width: 80vw;
     }
 
     .title_container {
@@ -54,11 +58,27 @@
       flex-direction: column;
       gap: 70px;
 
+      @include onMobileSmall {
+        gap: 35px;
+      }
+
+      @include onMobileLarge {
+        gap: 35px;
+      }
+
       .inputs_container {
         margin: 70px 30px 10px;
         display: flex;
         flex-direction: column;
         gap: 15px;
+
+        @include onMobileLarge {
+          margin: 35px 15px 5px;
+        }
+
+        @include onMobileSmall {
+          margin: 35px 15px 5px;
+        }
 
         .error {
           text-align: left;
@@ -68,8 +88,6 @@
 
       .select_wrapper {
         position: relative;
-        height: 37px;
-        overflow-y: auto;
 
         &:before {
           content: '';
@@ -90,9 +108,6 @@
 
       .select {
         width: 100%;
-
-        min-height: 37px;
-
         -moz-appearance: none;
         -webkit-appearance: none;
         appearance: none;

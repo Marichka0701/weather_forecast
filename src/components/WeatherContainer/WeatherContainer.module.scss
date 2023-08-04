@@ -18,6 +18,11 @@
     align-items: flex-start;
   }
 
+  @include onLaptopSmall {
+    width: 100vw;
+    height: auto;
+  }
+
   &.close {
     padding: 40px;
 

@@ -1,3 +1,21 @@
+@mixin onLaptopLarge {
+  @media screen and (min-width: 1440px) {
+    @content
+  }
+}
+
+@mixin onLaptopMedium {
+  @media screen and (min-width: 1280px) and (max-width: 1440px){
+    @content
+  }
+}
+
+@mixin onLaptopSmall {
+  @media screen and (min-width: 1024px) and (max-width: 1280px) {
+    @content
+  }
+}
+
 @mixin onLaptop {
   @media screen and (max-width: 1024px) {
     @content;
@@ -7,12 +25,6 @@
 @mixin onTablet {
   @media screen and (max-width: 768px) {
     @content;
-  }
-}
-
-@mixin onLaptopSmall {
-  @media screen and (max-width: 1280px) {
-    @content
   }
 }
 

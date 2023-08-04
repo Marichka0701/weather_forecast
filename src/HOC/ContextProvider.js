@@ -1,4 +1,5 @@
 import React, {createContext, useEffect, useState} from 'react';
+
 import {weatherService} from "../services/weather.service";
 import {initialState} from "../constants/assets";
 
@@ -17,7 +18,16 @@ const ContextProvider = ({children}) => {
     }, [])
 
     return (
-        <Context.Provider value={{modalOpen, setModalOpen, selectedCard, setSelectedCard, startTime, setStartTime, selectedCity, setSelectedCity}}>
+        <Context.Provider
+            value={{modalOpen,
+                setModalOpen,
+                selectedCard,
+                setSelectedCard,
+                startTime,
+                setStartTime,
+                selectedCity,
+                setSelectedCity}}
+        >
             {children}
         </Context.Provider>
     );

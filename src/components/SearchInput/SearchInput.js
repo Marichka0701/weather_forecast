@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from './SearchInput.module.scss';
 import searchIcon from './images/search-icon.png';
 import SortButton from "../SortButton/SortButton";
