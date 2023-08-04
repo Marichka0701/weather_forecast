@@ -76,13 +76,17 @@
       right: -30px;
     }
 
-    .next.open {
+    @include onMobileSmall {
+      right: -25px;
+    }
+
+    &.open {
       @include onMobileLarge {
-        right: 0;
+        display: none;
       }
 
       @include onMobileSmall {
-        right: 0;
+        display: none;
       }
     }
   }

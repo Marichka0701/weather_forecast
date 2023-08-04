@@ -25,14 +25,6 @@
     padding: 20px 0;
     border: 1px solid rgba(128, 128, 128, 0.5);
 
-    @include onMobileLarge {
-      width: 90vw;
-    }
-
-    @include onMobileSmall {
-      width: 90vw;
-    }
-
     .title_container {
       position: relative;
 
@@ -58,27 +50,11 @@
       flex-direction: column;
       gap: 70px;
 
-      @include onMobileSmall {
-        gap: 35px;
-      }
-
-      @include onMobileLarge {
-        gap: 35px;
-      }
-
       .inputs_container {
         margin: 70px 30px 10px;
         display: flex;
         flex-direction: column;
         gap: 15px;
-
-        @include onMobileLarge {
-          margin: 35px 15px 5px;
-        }
-
-        @include onMobileSmall {
-          margin: 35px 15px 5px;
-        }
 
         .error {
           text-align: left;
