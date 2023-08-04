@@ -77,6 +77,10 @@
     }
 
     .next.open {
+      @include onMobileLarge {
+        right: 0;
+      }
+
       @include onMobileSmall {
         right: 0;
       }
