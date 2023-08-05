@@ -1,12 +1,12 @@
 import React, {useContext, useEffect, useState} from 'react';
 
 import styles from './WeekForecast.module.scss';
-import {Context} from "../../HOC/ContextProvider";
+import {TripForecast} from "../../context/TripForecastProvider";
 import DayForecast from "./DayForecast/DayForecast";
 import button from './images/button-next-prev.png';
 
 const WeekForecast = () => {
-    const {selectedCard, modalOpen} = useContext(Context);
+    const {selectedCard, modalOpen} = useContext(TripForecast);
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {

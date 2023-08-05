@@ -3,14 +3,14 @@ import React, {useContext} from 'react';
 import styles from './WeatherCard.module.scss'
 import {photos} from '../../constants/cities';
 import {weatherService} from "../../services/weather.service";
-import {Context} from "../../HOC/ContextProvider";
+import {TripForecast} from "../../context/TripForecastProvider";
 
 const WeatherCard = ({card}) => {
     const { city, startDate, endDate } = card;
     const startDateFormatted = startDate.split('-').reverse().join('.');
     const endDateFormatted = endDate.split('-').reverse().join('.');
 
-    const {setSelectedCard, setStartTime, setSelectedCity} = useContext(Context);
+    const {setSelectedCard, setStartTime, setSelectedCity} = useContext(TripForecast);
 
     const handleClick = () => {
         weatherService.getForecastBetweenTwoDates(city, startDate, endDate)

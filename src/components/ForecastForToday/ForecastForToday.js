@@ -1,13 +1,13 @@
 import React, {useContext, useEffect, useState} from 'react';
 
 import styles from './ForecastForToday.module.scss';
-import {Context} from "../../HOC/ContextProvider";
+import {TripForecast} from "../../context/TripForecastProvider";
 import background from './images/background.jpg';
 import CountdownTimer from "../CountdownTimer/CountdownTimer";
 import {weatherService} from "../../services/weather.service";
 
 const ForecastForToday = () => {
-    const { selectedCity, startTime } = useContext(Context);
+    const { selectedCity, startTime } = useContext(TripForecast);
 
     const [address, setAddress] = useState('');
     const [temp, setTemp] = useState(null);

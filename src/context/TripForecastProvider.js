@@ -3,8 +3,8 @@ import React, {createContext, useEffect, useState} from 'react';
 import {weatherService} from "../services/weather.service";
 import {initialState} from "../constants/assets";
 
-const Context = createContext(null);
-const ContextProvider = ({children}) => {
+const TripForecast = createContext(null);
+const TripForecastProvider = ({children}) => {
     const {city, startDate, endDate} = initialState;
 
     const [modalOpen, setModalOpen] = useState(false);
@@ -18,7 +18,7 @@ const ContextProvider = ({children}) => {
     }, [])
 
     return (
-        <Context.Provider
+        <TripForecast.Provider
             value={{modalOpen,
                 setModalOpen,
                 selectedCard,
@@ -29,11 +29,11 @@ const ContextProvider = ({children}) => {
                 setSelectedCity}}
         >
             {children}
-        </Context.Provider>
+        </TripForecast.Provider>
     );
 };
 
 export {
-    Context,
-    ContextProvider,
+    TripForecast,
+    TripForecastProvider,
 };

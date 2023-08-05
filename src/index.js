@@ -1,15 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import {BrowserRouter} from "react-router-dom";
 import './index.css';
 import App from './App';
 
-import {ContextProvider} from "./HOC/ContextProvider";
+import {TripForecastProvider} from "./context/TripForecastProvider";
+import {AuthContextProvider} from "./context/AuthContextProvider";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <ContextProvider>
-        <App/>
-    </ContextProvider>
+    <BrowserRouter>
+        <TripForecastProvider>
+            <AuthContextProvider>
+                <App/>
+            </AuthContextProvider>
+        </TripForecastProvider>
+    </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

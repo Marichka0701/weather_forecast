@@ -6,10 +6,10 @@ import SearchInput from "../SearchInput/SearchInput";
 import AddTrip from "../AddTrip/AddTrip";
 import WeatherCardsContainer from "../WeatherCardsContainer/WeatherCardsContainer";
 import WeekForecast from "../WeekForecast/WeekForecast";
-import {Context} from "../../HOC/ContextProvider";
+import {TripForecast} from "../../context/TripForecastProvider";
 
 const WeatherContainer = () => {
-    const {modalOpen, setModalOpen} = useContext(Context);
+    const {modalOpen, setModalOpen} = useContext(TripForecast);
     const [trigger, setTrigger] = useState(false);
     const [searchCities, setSearchCities] = useState('');
 

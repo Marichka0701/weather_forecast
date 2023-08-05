@@ -5,6 +5,9 @@
   text-align: left;
   font-size: 14px;
   color: #282c34;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   @include onLaptop {
     width: 92%;
@@ -12,5 +15,64 @@
 
   span {
     font-weight: 700;
+  }
+
+  .user_info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    @include onMobileSmall {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    @include onMobileLarge {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    img {
+      width: 50px;
+      border-radius: 50%;
+    }
+
+    button {
+      padding: 5px 10px;
+      border-radius: 12px;
+      border: 1px solid #282c34;
+      font-weight: 500;
+      color: inherit;
+      transition: 0.8s;
+
+      &:hover {
+        transform: scale(0.8);
+        transition: 0.8s;
+      }
+
+      @include onMobileSmall {
+        width: 70px;
+      }
+    }
+  }
+
+  .sign_in {
+    padding: 5px 10px;
+    border-radius: 12px;
+    border: 1px solid #282c34;
+    font-weight: 500;
+    color: #282c34;
+    transition: 0.8s;
+
+    &:hover {
+      transform: scale(0.8);
+      transition: 0.8s;
+    }
+
+    @include onMobileSmall {
+      width: 70px;
+    }
   }
 }

@@ -1,0 +1,27 @@
+@import "../../utils/reset";
+
+.sign_in_page_container {
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 25vh;
+  padding: 25px;
+
+  img {
+    width: 25px;
+    cursor: pointer;
+  }
+
+  .sign_in_page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+
+    h1 {
+      font-weight: 700;
+    }
+  }
+}
